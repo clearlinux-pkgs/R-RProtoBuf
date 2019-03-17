@@ -4,19 +4,20 @@
 #
 Name     : R-RProtoBuf
 Version  : 0.4.13
-Release  : 3
+Release  : 4
 URL      : https://cran.r-project.org/src/contrib/RProtoBuf_0.4.13.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/RProtoBuf_0.4.13.tar.gz
 Summary  : R Interface to the 'Protocol Buffers' 'API' (Version 2 or 3)
 Group    : Development/Tools
 License  : GPL-2.0+
 Requires: R-RProtoBuf-lib = %{version}-%{release}
-Requires: R-RCurl
-Requires: R-Rcpp
-Requires: R-bitops
+Requires: R-RUnit
+Requires: R-markdown
 BuildRequires : R-RCurl
+BuildRequires : R-RUnit
 BuildRequires : R-Rcpp
 BuildRequires : R-bitops
+BuildRequires : R-markdown
 BuildRequires : buildreq-R
 BuildRequires : protobuf-dev
 
@@ -71,10 +72,10 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1546449728
+export SOURCE_DATE_EPOCH=1552795841
 
 %install
-export SOURCE_DATE_EPOCH=1546449728
+export SOURCE_DATE_EPOCH=1552795841
 rm -rf %{buildroot}
 export LANG=C
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -110,8 +111,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export _R_CHECK_FORCE_SUGGESTS_=false
-R CMD check --no-manual --no-examples --no-codoc -l %{buildroot}/usr/lib64/R/library RProtoBuf|| : 
-cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
+R CMD check --no-manual --no-examples --no-codoc  RProtoBuf || :
 
 
 %files
@@ -156,7 +156,6 @@ cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
 /usr/lib64/R/library/RProtoBuf/help/paths.rds
 /usr/lib64/R/library/RProtoBuf/html/00Index.html
 /usr/lib64/R/library/RProtoBuf/html/R.css
-/usr/lib64/R/library/RProtoBuf/libs/symbols.rds
 /usr/lib64/R/library/RProtoBuf/opencpu/ocpu-getdata.R
 /usr/lib64/R/library/RProtoBuf/opencpu/ocpu-getdata.py
 /usr/lib64/R/library/RProtoBuf/opencpu/ocpu-rpc.R
@@ -169,6 +168,7 @@ cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
 /usr/lib64/R/library/RProtoBuf/python/readmsg.py
 /usr/lib64/R/library/RProtoBuf/python/runtest.sh
 /usr/lib64/R/library/RProtoBuf/python/writemsg.R
+/usr/lib64/R/library/RProtoBuf/tests/runUnitTests.R
 /usr/lib64/R/library/RProtoBuf/unitTests/data/bytes.proto
 /usr/lib64/R/library/RProtoBuf/unitTests/data/cyclical/proj1/proto/a.proto
 /usr/lib64/R/library/RProtoBuf/unitTests/data/cyclical/proj1/proto/c.proto
@@ -203,5 +203,3 @@ cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/R/library/RProtoBuf/libs/RProtoBuf.so
-/usr/lib64/R/library/RProtoBuf/libs/RProtoBuf.so.avx2
-/usr/lib64/R/library/RProtoBuf/libs/RProtoBuf.so.avx512
