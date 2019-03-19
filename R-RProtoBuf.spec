@@ -4,15 +4,13 @@
 #
 Name     : R-RProtoBuf
 Version  : 0.4.13
-Release  : 5
+Release  : 6
 URL      : https://cran.r-project.org/src/contrib/RProtoBuf_0.4.13.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/RProtoBuf_0.4.13.tar.gz
 Summary  : R Interface to the 'Protocol Buffers' 'API' (Version 2 or 3)
 Group    : Development/Tools
 License  : GPL-2.0+
 Requires: R-RProtoBuf-lib = %{version}-%{release}
-Requires: R-RUnit
-Requires: R-markdown
 BuildRequires : R-RCurl
 BuildRequires : R-RUnit
 BuildRequires : R-Rcpp
@@ -72,10 +70,10 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1552795841
+export SOURCE_DATE_EPOCH=1552955914
 
 %install
-export SOURCE_DATE_EPOCH=1552795841
+export SOURCE_DATE_EPOCH=1552955914
 rm -rf %{buildroot}
 export LANG=C
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
