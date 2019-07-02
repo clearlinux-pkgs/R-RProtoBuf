@@ -1,7 +1,8 @@
-0.4.13
+0.4.14
 R-RCurl
 R-RUnit
 R-Rcpp
 R-bitops
+R-evaluate
 R-markdown
 protobuf-dev
