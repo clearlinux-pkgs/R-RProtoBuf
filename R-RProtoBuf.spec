@@ -4,7 +4,7 @@
 #
 Name     : R-RProtoBuf
 Version  : 0.4.17
-Release  : 21
+Release  : 22
 URL      : https://cran.r-project.org/src/contrib/RProtoBuf_0.4.17.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/RProtoBuf_0.4.17.tar.gz
 Summary  : R Interface to the 'Protocol Buffers' 'API' (Version 2 or 3)
@@ -19,39 +19,9 @@ BuildRequires : buildreq-R
 BuildRequires : protobuf-dev
 
 %description
-Quoting from http://en.wikipedia.org/wiki/Protocol_Buffers
-Protocol Buffers is a serialization format with an interface
-description language developed by Google. The original Google implementation
-for C++, Java and Python is available under a free software, open source
-license. Various other language implementations are either available or in
-development.
-.
-The design goals for Protocol Buffers emphasized simplicity and
-performance. In particular, it was designed to be faster than XML (no
-reproducible comparisons are publicly available to confirm this,
-however). Protocol Buffers is very similar to Facebook’s Thrift protocol,
-except it does not include a concrete RPC stack to use for defined
-services. Since Protocol Buffers was open sourced, a number of RPC stacks
-have emerged to fill this gap.
-.
-Prior to the release as open source, Protocol Buffers had been widely used
-at Google for storing and interchanging all kinds of structured
-information. Protocol Buffers serve as a basis for a custom RPC system that
-is used for practically all inter-machine communication at Google.[1]
-.
-Data structures and services are defined in the Proto Definition file
-(.proto) which is then compiled with protoc. This compilation generates code
-that matches the services. For example, example.proto will produce
-example.pb.cc and example.pb.h which will define C++ classes for each
-Message and Service example.proto defines.
-.
-Protocol Buffers allow serialization into any number of formats. In the
-officially supported implementations there is a full Reflection interface
-available, making it easy to serialize protos as XML and JSON.
-.
-Though the primary purpose of Protocol Buffers is to facilitate network
-communication, its simplicity and speed make Protocol Buffers a great
-replacement of data-centric C++ classes and structs.
+efficient yet extensible format. Google uses Protocol Buffers for almost all
+ of its internal 'RPC' protocols and file formats.  Additional documentation
+ is available in two included vignettes one of which corresponds to our 'JSS'
 
 %package lib
 Summary: lib components for the R-RProtoBuf package.
@@ -63,21 +33,22 @@ lib components for the R-RProtoBuf package.
 
 %prep
 %setup -q -c -n RProtoBuf
+cd %{_builddir}/RProtoBuf
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1585693805
+export SOURCE_DATE_EPOCH=1589525353
 
 %install
-export SOURCE_DATE_EPOCH=1585693805
+export SOURCE_DATE_EPOCH=1589525353
 rm -rf %{buildroot}
 export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
-export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
-export FFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
+export FCFLAGS="$FFLAGS -O3 -flto -fno-semantic-interposition "
+export FFLAGS="$FFLAGS -O3 -flto -fno-semantic-interposition "
 export CXXFLAGS="$CXXFLAGS -O3 -flto -fno-semantic-interposition "
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
