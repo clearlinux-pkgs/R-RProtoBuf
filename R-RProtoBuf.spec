@@ -4,7 +4,7 @@
 #
 Name     : R-RProtoBuf
 Version  : 0.4.18
-Release  : 35
+Release  : 36
 URL      : https://cran.r-project.org/src/contrib/RProtoBuf_0.4.18.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/RProtoBuf_0.4.18.tar.gz
 Summary  : R Interface to the 'Protocol Buffers' 'API' (Version 2 or 3)
@@ -38,10 +38,10 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1639682390
+export SOURCE_DATE_EPOCH=1641105107
 
 %install
-export SOURCE_DATE_EPOCH=1639682390
+export SOURCE_DATE_EPOCH=1641105107
 rm -rf %{buildroot}
 export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -162,3 +162,5 @@ R CMD check --no-manual --no-examples --no-codoc RProtoBuf || :
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/R/library/RProtoBuf/libs/RProtoBuf.so
+/usr/lib64/R/library/RProtoBuf/libs/RProtoBuf.so.avx2
+/usr/lib64/R/library/RProtoBuf/libs/RProtoBuf.so.avx512
