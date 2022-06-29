@@ -4,7 +4,7 @@
 #
 Name     : R-RProtoBuf
 Version  : 0.4.19
-Release  : 39
+Release  : 40
 URL      : https://cran.r-project.org/src/contrib/RProtoBuf_0.4.19.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/RProtoBuf_0.4.19.tar.gz
 Summary  : R Interface to the 'Protocol Buffers' 'API' (Version 2 or 3)
