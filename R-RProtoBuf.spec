@@ -7,7 +7,7 @@
 #
 Name     : R-RProtoBuf
 Version  : 0.4.22
-Release  : 54
+Release  : 55
 URL      : https://cran.r-project.org/src/contrib/RProtoBuf_0.4.22.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/RProtoBuf_0.4.22.tar.gz
 Summary  : R Interface to the 'Protocol Buffers' 'API' (Version 2 or 3)
